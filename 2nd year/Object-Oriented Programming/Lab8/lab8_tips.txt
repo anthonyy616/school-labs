@@ -1,0 +1,178 @@
+# COMP218 Lab 8 - Composition Template & Custom Tasks
+
+## Universal Template for Composition Problems
+
+When given any composition task, follow this systematic approach:
+
+### **Step 1: Identify the "Has-A" Relationship**
+- Read the problem and identify which class **contains** which class
+- Example: "A Car has an Engine" → Car contains Engine object(s)
+
+### **Step 2: Design the Contained Class First**
+```cpp
+// Always start with the simpler, contained class
+class ContainedClass {
+private:
+    // Data members specific to this class
+    
+public:
+    // Constructor
+    ContainedClass(/* parameters */);
+    
+    // Display/getter methods
+    void display() const;
+};
+```
+
+### **Step 3: Design the Container Class**
+```cpp
+class ContainerClass {
+private:
+    ContainedClass object1;  // Single object
+    // OR
+    ContainedClass objects[SIZE];  // Array of objects
+    
+public:
+    // Constructor - initializes contained objects
+    ContainerClass(/* parameters */);
+    
+    // Methods that use contained objects
+    void display() const;
+};
+```
+
+### **Step 4: Main Function Pattern**
+```cpp
+int main() {
+    // Create container object(s)
+    ContainerClass obj(/* arguments */);
+    
+    // Display/use the object
+    obj.display();
+    
+    return 0;
+}
+```
+
+---
+
+## Custom Tasks (30-Minute Difficulty)
+
+### **Task 1: Student–Course Relationship**
+**Scenario:** A student is enrolled in multiple courses.
+
+**Requirements:**
+- `Course` class with: course name, course code, credits
+- `Student` class with: student name, ID, array of 3 Course objects
+- Display student info with all enrolled courses
+- **Extension:** Calculate total credits
+
+---
+
+### **Task 2: Book–Author Relationship**
+**Scenario:** A book has one or more authors.
+
+**Requirements:**
+- `Author` class with: name, nationality
+- `Book` class with: title, ISBN, 2 Author objects (for co-authored books)
+- Display book details including all authors
+- **Extension:** Check if a specific author wrote the book
+
+---
+
+### **Task 3: Car–Engine Relationship**
+**Scenario:** A car has an engine with specific properties.
+
+**Requirements:**
+- `Engine` class with: horsepower, fuel type (string), cylinders
+- `Car` class with: brand, model, year, one Engine object
+- Display car specifications including engine details
+- **Extension:** Method to check if engine is electric (fuel type == "Electric")
+
+---
+
+### **Task 4: Library–Book Relationship**
+**Scenario:** A library contains multiple books.
+
+**Requirements:**
+- `Book` class with: title, author name, ISBN
+- `Library` class with: library name, array of 4 Book objects
+- Display library name and all books
+- **Extension:** Search for a book by title
+
+---
+
+### **Task 5: Rectangle–Point Relationship**
+**Scenario:** A rectangle is defined by two opposite corners.
+
+**Requirements:**
+- `Point` class with: x, y coordinates
+- `Rectangle` class with: two Point objects (top-left and bottom-right)
+- Display rectangle coordinates
+- **Extension:** Calculate area using the two points
+
+---
+
+### **Task 6: Team–Player Relationship**
+**Scenario:** A sports team has multiple players.
+
+**Requirements:**
+- `Player` class with: name, jersey number, position
+- `Team` class with: team name, array of 5 Player objects
+- Display team roster
+- **Extension:** Find player by jersey number
+
+---
+
+## Quick Implementation Checklist
+
+For any task given, verify you have:
+
+- [ ] **Header guards** in .h file (`#ifndef`, `#define`, `#endif`)
+- [ ] **Private data members** in both classes
+- [ ] **Public constructors** with initialization
+- [ ] **Const display methods** (`void display() const`)
+- [ ] **Proper initialization** of contained objects in container's constructor
+- [ ] **Clear output** in main() showing the composition relationship
+
+---
+
+## Common Patterns You'll See
+
+### Pattern 1: One-to-One Composition
+```cpp
+class Engine { /*...*/ };
+class Car {
+private:
+    Engine engine;  // Single object
+};
+```
+
+### Pattern 2: One-to-Many Composition
+```cpp
+class Room { /*...*/ };
+class House {
+private:
+    Room rooms[3];  // Array of objects
+};
+```
+
+### Pattern 3: Initialization in Constructor
+```cpp
+// Initialize contained object using member initializer list
+House::House() : rooms[0](Room("Kitchen")), 
+                 rooms[1](Room("Bedroom")),
+                 rooms[2](Room("Bathroom")) {
+    // Constructor body
+}
+```
+
+---
+
+## Time-Saving Tips for Lab
+
+1. **Copy your Lab 8 structure** - Use Point-Line or House-Room as a template
+2. **Rename systematically** - Find/Replace class names throughout
+3. **Test incrementally** - Get the contained class working first, then the container
+4. **Use simple data types** - Stick to int, double, string for speed
+5. **Keep display() simple** - Just cout the data members

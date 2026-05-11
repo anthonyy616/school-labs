@@ -1,0 +1,29 @@
+Completed Code for Question 5
+Thread Function (work):
+• Line 10: (size = download_data(buf, 1024)) > 0
+• Line 12: pthread_mutex_lock(&mtx)
+• Line 14: logfile
+• Line 16: pthread_mutex_unlock(&mtx)
+Main Function:
+• Line 23: connect()
+• Line 27: pthread_t worker[16]
+• Line 31: pthread_create(&worker[i], NULL, work, NULL)
+• Line 37: pthread_join
+
+--------------------------------------------------------------------------------
+Reasons for the Answers
+1. The Loop Condition (Line 10)
+Reason: The function download_data is used to retrieve data from the server. By placing the assignment size = download_data(...) inside the while condition, the thread continues to execute as long as there is data being received (size > 0).
+2. Mutex Locking and Unlocking (Lines 12 & 16)
+Reason: Because there is only one log file shared among 16 worker threads, writing to that file is considered a critical section. To prevent race conditions—where multiple threads attempt to write to the file at the same time and corrupt the data—you must use pthread_mutex_lock before writing and pthread_mutex_unlock immediately after the task is finished,.
+3. Initialization and Connection (Line 23)
+Reason: The problem states that connect() handles the TCP connection and is already programmed elsewhere,. It must be called in main to establish the connection before the threads begin downloading data.
+4. Thread Declaration (Line 27)
+Reason: To manage multiple threads, you need an array of pthread_t variables. Since the prompt specifies there are 16 worker threads, the array must be sized to 16.
+5. Thread Creation (Line 31)
+Reason: The pthread_create function is used to start each thread.
+• The first argument is the address of the thread ID in our array (&worker[i]).
+• The third argument is the function the thread should run (work).
+• The last argument is NULL because we aren't passing specific unique data to each thread in this example.
+6. Joining Threads (Line 37)
+Reason: pthread_join is used to make the main thread wait for the worker threads to complete their tasks. If the main function reaches return 0 and ends before the workers are done, all threads in that process will be cut in the middle and stop immediately.

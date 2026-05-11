@@ -1,0 +1,13 @@
+1st: Create the socket
+2nd: Create the address
+3rd: Bind
+4th: Listen
+5th: Accept
+6th: Commmunicate
+
+
+Client:
+1. Make socket
+2. Make server address
+3. Connect to server -> connect (cl socket, server address, sizeof server address)
+4. Communicate

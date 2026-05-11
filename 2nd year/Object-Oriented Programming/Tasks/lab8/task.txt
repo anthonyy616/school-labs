@@ -1,0 +1,11 @@
+Create a grid using the line class, the output should be like this
+
+".....#....."  if the length is 10, if the height is 10 you would print out 10 rows w this. it would depend on user-defined input (can hardcode it), the # should be at the midpoint of each grid
+
+all of this should be in one line
+
+Hint: you can use nested-for loops one from 0 to height and another from 0 to length
+
+length and height are user-defined and based off the input we should handle the mid-point calculation 
+
+all in one file, no function prototype definition files/header files

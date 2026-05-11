@@ -1,0 +1,51 @@
+
+Task 1: Fundamental Control Structures
+Write separate C++ programs for each of the following problems.
+(a) Sum of Floating-Point Numbers
+Write a program that:
+ Prompts the user to enter five floating-point numbers.
+ Uses a loop to calculate their sum.
+ Displays the result clearly labeled.
+Requirement: The solution must use an iterative control structure.
+(b) Smallest Integer Finder
+Write a program that:
+ Prompts the user to enter five integers.
+ Determines the smallest value among them.
+ Displays the smallest value clearly labeled.
+Requirement: The solution must use conditional statements.
+(c) Power Calculation
+Write a program that:
+ Prompts the user to enter two integers: n and m.
+ Computes n^m using an iterative approach (without using built-in power functions).
+ Displays the result clearly labeled.
+Requirement: The solution must use a loop-based implementation.
+
+
+Task 2: Menu-Driven Arithmetic Program (Numeric Options)
+Write a C++ program that implements a menu-driven calculator.
+The program must:
+1. Display the following options:
+1 – Add
+2 – Subtract
+3 – Multiply
+4 – Quit
+2. Prompt the user to select an option between 1 and 4.
+3. Use a switch statement to handle the selection.
+4. For options 1–3:
+ Prompt the user to enter two numeric values.
+ Perform the selected operation.
+ Display the result clearly labeled.
+5. Terminate when the user selects option 4.
+Requirement: The program must continue running until the user chooses to quit.
+
+
+Task 3: Menu-Driven Arithmetic Program (Symbol-Based Selection)
+Rewrite Task 2 with the following modifications:
+1. Instead of numeric options, allow the user to enter arithmetic symbols:
++ for addition
+- for subtraction
+* for multiplication
+. to terminate the program
+2. Use a switch statement to handle symbol-based selection.
+3. After each calculation, allow the user to perform another operation unless the termination symbol is entered.
+Requirement: The program must terminate only when the user enters .

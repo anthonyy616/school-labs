@@ -1,0 +1,5 @@
+1st: Create the socket
+2nd: Create the address
+3rd: Bind
+4th: Listen
+5th: Accept
